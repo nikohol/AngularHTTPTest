@@ -1,12 +1,9 @@
 <p>
-  {{ mod.module }}
-  {{ media }}
-  {{ media.baseUrl }}
-  <ul>
-    <li *ngFor="let pics of pictures">
-      {{ pics }}
-    </li>
-  </ul>
-  
-<img src="{{}}" style="height: 30px">
+  {{ mod.module }} {{ media }}
 </p>
+<h1>Tittelikin on</h1>
+<ul>
+  <li *ngFor="let image of images">
+    <img [src]="http://media.mw.metropolia.fi/wbma/uploads/{{image.filename}}" style="height: 200px">
+  </li>
+</ul>

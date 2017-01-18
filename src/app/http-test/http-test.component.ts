@@ -10,7 +10,7 @@ import { Inject } from '@angular/core';
 export class HttpTestComponent implements OnInit {
 
   private mod: any = {};
-  private media: any = {};
+  private images: any = [];
 
   constructor (private http: Http) { }
 
@@ -23,18 +23,18 @@ export class HttpTestComponent implements OnInit {
       });
   };
 
-  getAPI(){
-    this.http.get('http://media.mw.metropolia.fi/wbma/media')
+  getMedia(){
+    this.http.get('http://media.mw.metropolia.fi/wbma/media/')
     .subscribe((res: Response) => {
       const json2 = res.json();
-      this.media = json2.compilerOptions;
-      console.log(this.media);
+      this.images = json2;
+      console.log(this.images);
     });
   }
 
   ngOnInit() {
     this.getJson();
-    this.getAPI();
+    this.getMedia();
   }
 
 }
